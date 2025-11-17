@@ -1,0 +1,84 @@
+* {
+    font-family: "CaskaydiaCove Nerd Font";
+}
+
+window {
+    margin: 0px;
+    color: #cdd6f4;
+    border-radius: 15px;
+    background: transparent;
+}
+
+#input {
+    padding: 5px 25px 5px 5px;
+    margin: 10px 10px 0 10px;
+    border: none;
+    color: #cdd6f4;
+    font-weight: bold;
+    background: transparent;
+   	outline: none;
+    border-radius: 15px;
+}
+
+#input:focus {
+    border: 0px solid #2f2f3d;
+}
+
+#inner-box {
+    margin: 4px;
+    color: #cdd6f4;
+    background: transparent;
+    border-radius: 15px;
+}
+
+#outer-box {
+    margin: 0px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, .2);
+    padding: 5px;
+    border: 2px solid #cdd6f4;
+}
+
+#scroll {
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    /* background: rgb(255,255,255); */
+}
+
+#img {
+    margin-right: 15px;
+}
+
+#img:selected {
+    background: transparent;
+    border-radius: 15px;
+}
+
+#text:selected {
+    color: #cdd6f4;
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background: transparent;
+}
+
+#entry {
+    margin: 2px 0px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    opacity: .8;
+}
+
+#entry:selected {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: rgba(137, 180, 250, 0.2);
+    opacity: 1;
+    font-weight: bold;
+}

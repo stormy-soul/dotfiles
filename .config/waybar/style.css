@@ -1,0 +1,119 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "CaskaydiaCove Nerd Font";
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+tooltip {
+    background: #11111b;
+    border-radius: 10px;
+    border: 2px solid #a6adc8;
+    color: #a6adc8;
+    padding: 0 10px;
+    opacity: .9;
+}
+
+#workspaces {
+    border-radius: 10px;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+}
+
+#workspaces button {
+    color: #a6adc8;
+    margin: 2px 2px 2px 5px;
+    border-radius: 10px;
+}
+
+#workspaces button.focused {
+    background: #eba0ac;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+}
+
+#custom-weather,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#workspaces,
+#tray,
+#backlight,
+#workspaces {
+    background: rgba(30, 30, 46, .6);
+    opacity: 0.8;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+}
+
+#tray {
+    border-radius: 10px;
+    margin-right: 30px;
+    color: #cdd6f4;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+}
+
+#clock {
+    color: #9586f4;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+    border-right: 0;
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 30px;
+    border-right: 0px;
+    padding: 0 15px 0 10px;
+}
+
+#pulseaudio {
+    color: #9586f4;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+    border-right: 0;
+    border-left: 0;
+}
+
+#battery {
+    color: #a6e3a1;
+    border-radius: 10px 0 0 10px;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+    border-right: 0;
+}
+
+#backlight {
+    border-radius: 0 10px 10px 0;
+    margin-right: 10px;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+    border-left: 0;
+}
+
+#custom-weather {
+    color: #9586f4;
+    border-radius: 0 10px 10px 0;
+    padding: 0 10px 0 0;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+    border-left: 0;
+}
+
+#window {
+    color: #a6adc8;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid rgba(166, 173, 200, 0.4);
+}

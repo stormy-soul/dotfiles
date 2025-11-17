@@ -1,0 +1,133 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 48,
+    "modules-left": [
+        "clock",
+        "custom/weather",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "battery",
+        "pulseaudio",
+        "backlight",
+        "tray"
+    ],
+    "hyprland/window": {
+        "format": " {}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "active": " ",
+            "default": " "
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        }
+    },
+    "custom/weather": {
+        "tooltip": true,
+        "format": "{}",
+        "interval": 1800,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 60,
+        "format": " {:%I:%M %p}",
+        "tooltip-format": "{:%Y-%m-%d %a %b %e}",
+        "max-length": 25
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 3
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 1",
+        "on-scroll-down": "pamixer -d 1",
+        "scroll-step": 1,
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "network": {
+        "format": "{icon} {name}",
+        "format-wifi": "󱛎",
+        "format-disconnected": "󰤮",
+        "format-icons": {
+            "0": "󰤯",
+            "1": "󰤟",
+            "2": "󰤢",
+            "3": "󰤥",
+            "4": "󰤨"
+        },
+        "on-click": "eww open wifi-menu",
+        "tooltip": false
+    },
+    "bluetooth": {
+        "format": "",
+        "format-connected": "󰂱",
+        "format-disabled": "󰂲",
+        "on-click": "eww open bt-menu",
+        "tooltip": false,
+        "icon-size": 20
+    }
+}

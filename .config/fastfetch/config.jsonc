@@ -1,0 +1,99 @@
+{
+  // ----------------- LOGO -----------------
+  "logo": {
+    "type": "auto",
+    "source": "/home/nadun/.config/fastfetch/anime/cat.txt",
+    "color": {
+      "1": "blue"
+    },
+    "padding": {
+      "top": 0,
+      "left": 2,         
+      "right": 2        
+    }
+  },
+
+  // ---------------- DISPLAY ----------------
+  "display": {
+
+    "separator": "",
+    "color": {
+      "keys": "blue",
+      "title": "white"
+    },
+
+    "key": {
+      "width": 12,
+      "type": "string"
+    },
+
+    "bar": {
+      "width": 10,
+      "char": {
+        "elapsed": "",
+        "total": "•"
+      }
+    },
+
+    // 1=number, 2=bar, 3=both, 9=colored number
+    "percent": {
+      "type": 9, 
+      "color": {
+        "green": "green",
+        "yellow": "light_yellow",
+        "red": "light_red"
+      }
+    }
+  },
+  
+  // ------------- MODULE ORDER -------------
+  "modules": [
+    {
+      "type": "title",
+      "format": " {user-name-colored}{at-symbol-colored}{host-name-colored}"
+    },
+    { 
+      "type": "os",
+      "format": "{pretty-name} ({arch})",
+      "key": " OS"
+    },
+    { 
+      "type": "kernel",
+      "key": " Kernel"
+    },
+    { 
+      "type": "packages",
+      "format": "{all}",
+      "key": "󰏓 Packages"
+    },
+    { 
+      "type": "shell",
+      "format": "{pretty-name} ({version})",
+      "key": " Shell"
+    },
+    { 
+      "type": "wm",
+      "format": "{pretty-name} ({version})",
+      "key": " WM"
+    },
+    { 
+      "type": "cpu",
+      "format": "{name} ({freq-max})",
+      "key": " CPU"
+    },
+    { 
+      "type": "gpu",
+      "format": "{vendor} {name} ({frequency})",
+      "key": "󱄄 GPU"
+    },
+    { 
+      "type": "memory",
+      "key": " Memory"
+    },
+    {
+      "type": "custom",
+      "key": " Colors",
+      "format": "{#black}●{#} {#red}●{#} {#green}●{#} {#yellow}●{#} {#blue}●{#} {#magenta}●{#} {#cyan}●{#} {#white}●{#}"
+    }
+  ]
+}
