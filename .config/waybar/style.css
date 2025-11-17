@@ -72,7 +72,7 @@ tooltip {
 }
 
 #clock {
-    color: #9586f4;
+    color: #8a8cec;
     border: 2px solid rgba(166, 173, 200, 0.4);
     border-right: 0;
     border-radius: 10px 0px 0px 10px;
@@ -82,7 +82,7 @@ tooltip {
 }
 
 #pulseaudio {
-    color: #9586f4;
+    color: #8a8cec;
     border: 2px solid rgba(166, 173, 200, 0.4);
     border-right: 0;
     border-left: 0;
@@ -103,7 +103,7 @@ tooltip {
 }
 
 #custom-weather {
-    color: #9586f4;
+    color: #8a8cec;
     border-radius: 0 10px 10px 0;
     padding: 0 10px 0 0;
     border: 2px solid rgba(166, 173, 200, 0.4);
