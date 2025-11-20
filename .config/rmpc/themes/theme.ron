@@ -26,7 +26,7 @@
         song_style: (fg: "blue"), dir_style: (fg: "blue")
     ),
     progress_bar: (
-        symbols: ["-", "", "-"],
+        symbols: ["", "-", "", "-", ""],
         track_style: (fg: "white"),
         elapsed_style: (fg: "blue"),
         thumb_style: (fg: "blue"),
@@ -40,19 +40,19 @@
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist), style: (fg: "#cdd6f4"),
-                default: (kind: Text("Unknown Artist"), style: (fg: "black"))),
-            width: "30%"
-        ),
-        (
             prop: (kind: Property(Title), style: (fg: "#cdd6f4"),
                 default: (kind: Property(Filename), style: (fg: "white"))),
             width: "50%"
         ),
         (
+            prop: (kind: Property(Artist), style: (fg: "#cdd6f4"),
+                default: (kind: Text("Unknown Artist"), style: (fg: "black"))),
+            width: "35%"
+        ),
+        (
             prop: (kind: Property(Album), style: (fg: "#cdd6f4"),
                 default: (kind: Text("Unknown Album"), style: (fg: "black"))),
-            width: "20%"
+            width: "15%"
         ),
         (
             prop: (kind: Property(Duration), style: (fg: "#a6adc8"),
@@ -132,7 +132,7 @@
                                             (kind: Text(" / "),style: (fg: "blue", modifiers: "Bold")),
                                             (kind: Property(Status(Duration)),style: (fg: "white")),
                                             (kind: Text(" | "),style: (fg: "blue", modifiers: "Bold")),
-                                            (kind: Property(Status(Bitrate)),default: (kind: Text(" ")),style: (fg: "white")),
+                                            (kind: Property(Status(Bitrate)),default: (kind: Text(" ")),style: (fg: "white")),
                                             (kind: Text(" kbps"),style: (fg: "white")),
                                             (kind: Text(" ]"),style: (fg: "blue", modifiers: "Bold"))
                                         ], align: Left))
@@ -193,8 +193,8 @@
         bar_width: 2, 
         bar_spacing: 1,
         bar_color: Gradient({
-                0:   "#9586F4",
-                100: "#a6adc8",
-            })
+			0: "#8a8cec",
+			100: "#a6adc8",
+		})
     ),
 )

@@ -1,20 +1,23 @@
+@import url("/home/nadun/.cache/wal/colors-waybar.css");
+
 .notification {
     background: rgba(12, 12, 14, 0.45);
     border-radius: 10px;
-    color: #a6adc8;
+    color: @foreground;
     padding: 0;
+    margin-right: 20px;
     font-family: "CaskaydiaCove Nerd Font";
-    border: 2px solid rgba(205, 214, 244, 0.6);
+    border: 2px solid @color2;
     transition: 300ms ease;
 }
 
 .control-center {
     background: rgba(12, 12, 14, 0.45);
     border-radius: 10px;
-    color: rgba(205, 214, 244, 0.6);
+    color: @foreground;
     padding: 10px;
     font-family: "CaskaydiaCove Nerd Font";
-    border: 2px solid rgba(205, 214, 244, 0.6);
+    border: 2px solid @color2;
 }
 
 .close-button,
@@ -24,18 +27,19 @@
 }
 
 .close-button {
-    color: #a6adc8;
+    color: @foreground;
     font-size: 24px;
 }
 
 .summary {
     font-weight: 900;
-    color: #cdd6f4;
+    color: @foreground;
 }
 
 .body {
     font-weight: 600;
-    color: #a6adc8;
+    color: @foreground;
+    opacity: 0.6;
 }
 
 .image,

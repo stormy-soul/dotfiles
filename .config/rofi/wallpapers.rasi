@@ -1,0 +1,59 @@
+@import '~/.cache/wal/colors-rofi.rasi'
+
+* {
+    border-color: @color2;
+    spacing: 10;
+    font: "CaskaydiaCove NF 12";
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+window {
+    background-color: rgba(30, 30, 46, 0.6);    
+    border-radius: 15px;
+    border: 2px;
+    padding: 15px;
+    width: 40%;
+    height: 50%;
+}
+
+listview {
+    lines: 2;
+    columns: 3;
+    cycle: true;
+    spacing: 10px;
+    fixed-height: false;
+    fixed-columns: true;
+    margin-top: 10px;
+}
+
+element {
+    max-height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    orientation: vertical;
+    children: [element-icon];
+}
+
+
+element-icon {
+    size: 220px;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+element normal.normal {
+    opacity: 0.8;
+}
+
+element selected.normal {
+    border: 2px;
+    opacity: 1;
+}
+
+entry {
+    cursor: text;
+    placeholder-color: @foreground;
+    placeholder: "󰥷 Choose a wallpaper";
+}

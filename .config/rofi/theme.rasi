@@ -1,0 +1,146 @@
+* {
+    foreground: @foreground;
+    background: rgba(30, 30, 46, 0.6);
+    
+    color0: @color0; // dark
+    color1: @color1; 
+    color2: @color2;
+    color3: @color3;    
+    color4: @color4;
+    color5: @color5;
+    color6: @color6;
+    color7: @color7; // light
+
+    border-color: @color2;
+    separatorcolor: @foreground;
+    background-color: transparent;
+
+
+    spacing: 10;
+    font: "CaskaydiaCove NF 12";
+}
+
+element {
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 2px 0px;
+    text-color: @foreground;
+}
+
+element normal.normal {
+    background-color: transparent;
+    opacity: 0.8;
+}
+
+element selected.normal {
+    border-color: @color2;
+    border: 2px;
+    opacity: 1;
+}
+
+
+element-text {
+    cursor: inherit;
+    highlight: None;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    border-radius: 5px;
+    size: 1.5em;
+    cursor: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+window {
+    background-color: @background;
+    border-radius: 15px;
+    border: 2px;
+    padding: 15px;
+    width: 25%;
+    height: 43%;
+}
+
+listview {
+    scrollbar: true;
+    spacing: 2px;
+    margin: 15px 0 10px 0;
+    height: 100%;
+}
+
+scrollbar,
+sidebar {
+    enabled: false;
+}
+
+button {
+    cursor: pointer;
+    spacing: 0;
+    text-color: @foreground;
+}
+
+button selected {
+    background-color: @color2;
+    text-color: @foreground;
+}
+
+num-filtered-rows {
+    expand: false;
+    text-color: @foreground;
+    opacity: 0.4;
+}
+
+num-rows {
+    expand: false;
+    text-color: @foreground;
+    opacity: 0.4;
+}
+
+textbox-num-sep {
+    expand: false;
+    str: "/";
+    text-color: @foreground;
+    opacity: 0.4;
+}
+
+inputbar {
+    padding: 8px 10px;
+    text-color: @foreground;
+    opacity: 0.8;
+    children: [ "prompt", "textbox-prompt-colon", "entry", "overlay", "num-filtered-rows", "textbox-num-sep", "num-rows", "case-indicator"];
+}
+
+overlay {
+    padding: 0px 0.2000em;
+    background-color: @foreground;
+    foreground-color: transparent;
+    margin: 0px 0.2000em;
+    text-color: transparent;
+}
+
+case-indicator {
+    spacing: 0;
+    text-color: @foreground;
+}
+
+entry {
+    text-color: @foreground;
+    cursor: text;
+    placeholder-color: @foreground;
+    placeholder: "Search...";
+}
+
+prompt {
+    spacing: 0;
+    text-color: @foreground;
+}
+
+textbox-prompt-colon {
+    margin: 0 0 0 20px;
+    expand: false;
+    str: " ";
+    text-color: @color2;
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+awww restore
+wal -R -n # or -w ??

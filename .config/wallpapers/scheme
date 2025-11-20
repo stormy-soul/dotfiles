@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+img="$1"
+selection="$2"
+CACHE_DIR="$HOME/.cache/wal/schemes/"
+
+base=$(basename "$img")
+cache="$CACHE_DIR/$base.json"
+
+if [ -f "$cache" ]; then
+  wal --theme "$cache" >/dev/null
+else
+  wal -i "$img" --cols16 darken --contrast 3.0 --saturate 0.7 -n >/dev/null
+fi
+
+pkill -SIGUSR1 swaync
+pkill -SIGUSR2 waybar
+kitty @ set-colors -all --configured ~/.pywal16/colors-kitty.conf
+
+notify-send -i preferences-system "Theme updated" "System theme was updated to \"$selection\""

@@ -1,0 +1,3 @@
+max-items 50
+db-path /home/nadun/.cache/cliphist/db
+dedupe-mode move-to-top

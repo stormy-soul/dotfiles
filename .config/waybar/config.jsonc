@@ -5,7 +5,7 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 48,
+    "height": 50,
     "modules-left": [
         "clock",
         "custom/weather",
@@ -15,10 +15,10 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "tray",
         "battery",
         "pulseaudio",
-        "backlight",
-        "tray"
+        "backlight"
     ],
     "hyprland/window": {
         "format": " {}"
