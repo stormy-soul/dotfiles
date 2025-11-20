@@ -21,7 +21,8 @@
         "backlight"
     ],
     "hyprland/window": {
-        "format": " {}"
+        "format": " {}",
+        "interval": 1
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
