@@ -13,8 +13,6 @@ else
   wal -i "$img" --cols16 darken --contrast 3.0 --saturate 0.7 -n >/dev/null
 fi
 
-pkill -SIGUSR1 swaync
-pkill -SIGUSR2 waybar
-kitty @ set-colors -all --configured ~/.pywal16/colors-kitty.conf
-
+pkill -9 waybar && waybar & && sleep 0.2 # SIGUSR1 will cause waybar to core dump :/
+pkill -SIGUSR1 swaync && sleep 0.4
 notify-send -i preferences-system "Theme updated" "System theme was updated to \"$selection\""
