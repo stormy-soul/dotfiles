@@ -10,16 +10,18 @@ for img in "$WALL_DIR"/*; do
   thumb="$CACHE/$base.jpg" # force static thumbnail format
 
   if [ ! -f "$thumb" ]; then
-    vips thumbnail "$img" "$thumb" 500
+    vips thumbnail "$img" "$thumb" 640x480
   fi
 
   list="$list$base\0icon\x1f$thumb\n"
 done
 
-selection=$(echo -e "$list" | rofi show -dmenu -columns 4 -theme wallpapers)
+selection=$(echo -e "$list" | rofi show -dmenu -columns 3 -l 2 -theme wallpapers)
 [ -z "$selection" ] && exit
 selected="$WALL_DIR/$selection"
 
-awww img --transition-type any --transition-bezier 0.05,0.9,0.1,1.05 --filter Nearest --resize crop "$selected"
+awww img --transition-type any --transition-bezier 0.05,0.9,0.1,1.05 --filter Nearest --resize crop "$selected" &
+PID=$!
+wait $PID
 ~/.config/wallpapers/scheme "$selected" "$selection"
 sudo sddm-set "$selected"

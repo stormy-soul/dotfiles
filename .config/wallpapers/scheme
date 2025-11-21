@@ -13,6 +13,8 @@ else
   wal -i "$img" --cols16 darken --contrast 3.0 --saturate 0.7 -n >/dev/null
 fi
 
-pkill -9 waybar && waybar & && sleep 0.2 # SIGUSR1 will cause waybar to core dump :/
-pkill -SIGUSR1 swaync && sleep 0.4
-notify-send -i preferences-system "Theme updated" "System theme was updated to \"$selection\""
+pkill -9 waybar && waybar & # SIGUSR1 will cause waybar to core dump :/
+sleep 0.2
+swaync-client --reload-css
+python3 ~/.config/wallpapers/rmpc.py -t theme.ron
+notify-send -i preferences-system -t 2500 "Theme updated" "System theme was updated to \"$selection\""

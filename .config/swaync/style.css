@@ -7,7 +7,7 @@
     padding: 0;
     margin-right: 20px;
     font-family: "CaskaydiaCove Nerd Font";
-    border: 2px solid @color2;
+    border: 2px solid @color6;
     transition: 300ms ease;
 }
 
@@ -17,7 +17,7 @@
     color: @foreground;
     padding: 10px;
     font-family: "CaskaydiaCove Nerd Font";
-    border: 2px solid @color2;
+    border: 2px solid @color6;
 }
 
 .close-button,

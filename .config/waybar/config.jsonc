@@ -15,14 +15,14 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "mpris",
+        "mpris",        
         "tray",
         "battery",
         "pulseaudio",
         "backlight"
     ],
     "hyprland/window": {
-        "format": "  {}",
+        "format": "   {}",
         "interval": 1
     },
     "hyprland/workspaces": {
@@ -58,7 +58,14 @@
         },
         "ignored-players": ["librewolf", "firefox"],
         "elipses": "...",
-        "tooltip-format": "{title} - {artist} | {album}",
+        "tooltip-format": "{title} - {artist} | {album}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        }
     },
     "cava": {
         "cava_config": "$XDG_COOONFIG_HOME/.config/cava/config",  
@@ -74,18 +81,18 @@
     },
     "clock": {
         "interval": 60,
-        "format": "  {:%I:%M %p}",
+        "format": "   {:%I:%M %p}",
         "tooltip-format": "{:%Y-%m-%d %a %b %e}",
         "max-length": 25
     },
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
+        "format": "{icon} {percent}%",
         "format-icons": [
-            "󰃞",
-            "󰃟",
-            "󰃠"
+            "󰃞 ",
+            "󰃟 ",
+            "󰃠 "
         ],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
@@ -95,12 +102,12 @@
     "battery": {
         "states": {
             "good": 95,
-            "warning": 30,
+            "warning": 35,
             "critical": 20
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "tooltip-format": "{timeTo}",
         "format-icons": [
             "󰂎",
@@ -117,9 +124,9 @@
         ]
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon} {volume}%",
         "tooltip": false,
-        "format-muted": " Muted",
+        "format-muted": " Muted",
         "on-click": "pamixer -t",
         "on-scroll-up": "pamixer -i 1",
         "on-scroll-down": "pamixer -d 1",
@@ -134,24 +141,26 @@
     },
     "network": {
         "interface": "wlp2s0",
-        "format": "{icon} {essid}",
-        "format-wifi": "󱛎 {essid}",
+        "format": "{icon}   {essid}",
+        "format-wifi": "󰤪   {essid} ({signalStrength}%)",
         "format-icons": {
-            "0": "󰤯",
-            "1": "󰤟",
-            "2": "󰤢",
-            "3": "󰤥",
-            "4": "󰤨"
+            "0": "󰤯 ",
+            "1": "󰤟 ",
+            "2": "󰤢 ",
+            "3": "󰤥 ",
+            "4": "󰤨 "
         },
+        "format-disabled": "󰤮",
         "max-length": 50,
         "tooltip": true,
-        "tooltip-format": "{ifname}:{ipaddr}"
+        "tooltip-format": "{ifname}:{ipaddr} [{frequency}]",
+        "on-click": "/home/nadun/.config/rofi/control network"
     },
     "bluetooth": {
         "format": "",
-        "format-connected": "󰂱",
+        "format-connected": "󰂱  {device_alias}",
         "format-disabled": "󰂲",
-        "tooltip": false,
-        "icon-size": 20
+        "tooltip": true,
+        "tooltip-format": "{controller_alias}:{device_address}\n{device_alias}: {device_battery_percentage}%"
     }
 }

@@ -60,6 +60,7 @@ tooltip * {
 #bluetooth,
 #workspaces,
 #cava,
+#idle_inhibitor,
 #tray,
 #backlight,
 #mpris,
@@ -73,18 +74,23 @@ tooltip * {
 
 #mpris {
     border-radius: 10px;
+    margin-left: 10px;
     margin-right: 10px;
     border: 2px solid rgba(166, 173, 200, 0.3);
-}
-
-#mpris.stopped {
-    opacity: 0;
 }
 
 #tray {
     border-radius: 10px;
-    margin-right: 10px;
     border: 2px solid rgba(166, 173, 200, 0.3);
+    margin-right: 10px;
+}
+
+#idle_inhibitor {
+    border-radius: 0 10px 10px 0;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    border-left: 0;
+    margin-right: 10px;
+    padding: 0 15px 0 10px;
 }
 
 #clock {
@@ -130,8 +136,11 @@ tooltip * {
 }
 
 @keyframes blink {
+    from {
+        color: #f13e71;
+    }
     to {
-        color: rgba(0, 0, 0, 0);
+        color: transparent;
     }
 }
 
@@ -145,12 +154,19 @@ tooltip * {
 }
 
 #network {
-    color: @color4;
+    color: @foreground;
+    border-radius: 10px 0 0 10px;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    border-right: 0;
+    padding: 0 0 0 10px;
+}
+
+#bluetooth {
+    color: @foreground;
     border-radius: 0 10px 10px 0;
-    margin-right: 30px;
     border: 2px solid rgba(166, 173, 200, 0.3);
     border-left: 0;
-    padding: 0 10px 0 0;
+    margin-right: 10px;
 }
 
 #custom-weather {
