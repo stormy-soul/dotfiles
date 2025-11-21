@@ -62,7 +62,8 @@ data = {}
 MAX_RETRIES = 3
 BACKOFF = 30.0  
 
-url = "https://wttr.in/?format=j1"
+city = "Anuradhapura"
+url = f"https://wttr.in/{city}?format=j1"
 
 for attempt in range(1, MAX_RETRIES + 1):
     try:
@@ -118,22 +119,5 @@ data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value
 data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeC']}°\n"
 data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
 data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
-
-"""
-for i, day in enumerate(weather['weather']):
-    data['tooltip'] += f"\n<b>"
-    if i == 0:
-        data['tooltip'] += "Today, "
-    if i == 1:
-        data['tooltip'] += "Tomorrow, "
-    data['tooltip'] += f"{day['date']}</b>\n"
-    data['tooltip'] += f"⬆️ {day['maxtempF']}° ⬇️ {day['mintempF']}° "
-    data['tooltip'] += f"🌅 {day['astronomy'][0]['sunrise']} 🌇 {day['astronomy'][0]['sunset']}\n"
-    for hour in day['hourly']:
-        if i == 0:
-            if int(format_time(hour['time'])) < datetime.now().hour-2:
-                continue
-        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeF'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
-"""
 
 print(json.dumps(data))

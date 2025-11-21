@@ -1,7 +1,7 @@
 @import url("/home/nadun/.cache/wal/colors-waybar.css");
 
 .notification {
-    background: rgba(12, 12, 14, 0.45);
+    background: rgba(30, 30, 46, .4);
     border-radius: 10px;
     color: @foreground;
     padding: 0;
@@ -12,7 +12,7 @@
 }
 
 .control-center {
-    background: rgba(12, 12, 14, 0.45);
+    background: rgba(30, 30, 46, .4);
     border-radius: 10px;
     color: @foreground;
     padding: 10px;

@@ -193,10 +193,8 @@
         bar_width: 2, 
         bar_spacing: 1,
         bar_color: Gradient({
-			0: "#F076A9",
-			33: "#F89ECB",
-			66: "#A89B9C",
-			100: "#eae1e3",
+					0: "#1faf65",
+					100: "#1f9ab6",
 		})
     ),
 )

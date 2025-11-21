@@ -14,11 +14,16 @@ window#waybar {
 }
 
 tooltip {
-    background: @background;
+    background: rgba(30, 30, 46, .4);
+    color: @foreground;
     border-radius: 10px;
-    border: 2px solid @color2;
-    padding: 0 10px;
-    opacity: .9;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    opacity: 0.8;
+}
+
+tooltip * {
+    padding: 1px 3px;
+    color: @foreground;
 }
 
 #workspaces {
@@ -54,14 +59,26 @@ tooltip {
 #network,
 #bluetooth,
 #workspaces,
+#cava,
 #tray,
 #backlight,
+#mpris,
 #workspaces {
     color: @foreground;
     background: rgba(30, 30, 46, .4);
     opacity: 0.8;
     padding: 0px 10px;
     margin-top: 15px;
+}
+
+#mpris {
+    border-radius: 10px;
+    margin-right: 10px;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+}
+
+#mpris.stopped {
+    opacity: 0;
 }
 
 #tray {
@@ -85,6 +102,7 @@ tooltip {
     border: 2px solid rgba(166, 173, 200, 0.3);
     border-right: 0;
     border-left: 0;
+    padding: 0 5px;
 }
 
 #battery {
@@ -94,12 +112,45 @@ tooltip {
     border-right: 0;
 }
 
+#battery.charging {
+    color: #86f5a7;
+}
+#battery.warning {
+    color: #f9e2af;
+}
+#battery.critical {
+    color: #f13e71;
+}
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: rgba(0, 0, 0, 0);
+    }
+}
+
+
 #backlight {
+    color: @color4;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    border-left: 0;
+    border-radius: 0 10px 10px 0;
+    margin-right: 30px;
+}
+
+#network {
     color: @color4;
     border-radius: 0 10px 10px 0;
     margin-right: 30px;
     border: 2px solid rgba(166, 173, 200, 0.3);
     border-left: 0;
+    padding: 0 10px 0 0;
 }
 
 #custom-weather {

@@ -1,0 +1,47 @@
+import os
+import time
+import eyed3
+import subprocess
+from mpd import MPDClient
+from pathlib import Path
+
+exception_buff = []
+client = MPDClient()
+
+try:
+    client.connect("localhost", 6600)
+except Exception as e:
+    exception_buff.append(e)
+
+song = client.currentsong()
+
+music = Path("/home/nadun/Music/")
+track_path = music / song['file']
+img = music / f"{song['title'] + ".png"}"
+
+def extract(track=track_path, out=img):
+    audio = eyed3.load(track)
+    if audio:
+        try:
+            for tag in audio.tag.images:
+                with open(out, "wb") as image:
+                    image.write(tag.image_data)
+                break
+        except Exception as e:
+            exception_buff.append(e)
+    else:
+        exception_buff.append("Unable to init track data")
+
+def notify(icon, name, desc):
+    try:
+        process = subprocess.Popen(
+            ["notify-send", "-i", icon, name, desc],
+        )
+    except Exception as e:
+        exception_buff.append(e)
+    
+if __name__ == "__main__":
+    extract()
+    notify(Path(img), song['title'], f"{'[E] ' + ', '.join(str(exception) for exception in exception_buff) if len(exception_buff) != 0 else song['artist']}")
+    time.sleep(1)
+    os.remove(Path(img))

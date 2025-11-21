@@ -6,7 +6,7 @@
     password: None,
     theme: Some("theme"),
     cache_dir: None,
-    on_song_change: None,
+    on_song_change: ["/usr/bin/python3", "/home/nadun/.config/rmpc/notify.py"],
     volume_step: 1,
     max_fps: 30,
     scrolloff: 0,

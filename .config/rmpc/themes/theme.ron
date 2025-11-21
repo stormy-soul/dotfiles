@@ -26,7 +26,7 @@
         song_style: (fg: "blue"), dir_style: (fg: "blue")
     ),
     progress_bar: (
-        symbols: ["", "-", "", "-", ""],
+        symbols: ["-", "", "-"],
         track_style: (fg: "white"),
         elapsed_style: (fg: "blue"),
         thumb_style: (fg: "blue"),
@@ -193,8 +193,8 @@
         bar_width: 2, 
         bar_spacing: 1,
         bar_color: Gradient({
-			0: "#8a8cec",
-			100: "#a6adc8",
-		})
+					0: "#1f9ab6",
+					100: "#949b9e",
+				})
     ),
 )

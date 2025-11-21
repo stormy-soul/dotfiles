@@ -15,18 +15,19 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "mpris",
         "tray",
         "battery",
         "pulseaudio",
         "backlight"
     ],
     "hyprland/window": {
-        "format": " {}",
+        "format": "  {}",
         "interval": 1
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "format": "{name} {icon}",
+        "format": "{name} {icon}",
         "format-icons": {
             "active": " ",
             "default": " "
@@ -45,13 +46,35 @@
         "exec": "~/.config/waybar/scripts/waybar-wttr.py",
         "return-type": "json"
     },
+    "mpris": {
+        "format": "{player_icon} {title}",
+        "format-paused": "{status_icon} <i>{title}</i>",
+        "player-icons": {
+            "default": " ",
+            "mpv": " "
+        },
+        "status-icons": {
+            "paused": ""
+        },
+        "ignored-players": ["librewolf", "firefox"],
+        "elipses": "...",
+        "tooltip-format": "{title} - {artist} | {album}",
+    },
+    "cava": {
+        "cava_config": "$XDG_COOONFIG_HOME/.config/cava/config",  
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "nosie_reduction": "0.7",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    },
     "tray": {
         "icon-size": 20,
         "spacing": 10
     },
     "clock": {
         "interval": 60,
-        "format": " {:%I:%M %p}",
+        "format": "  {:%I:%M %p}",
         "tooltip-format": "{:%Y-%m-%d %a %b %e}",
         "max-length": 25
     },
@@ -78,7 +101,7 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "tooltip-format": "{timeTo}",
         "format-icons": [
             "󰂎",
             "󰁺",
@@ -110,9 +133,9 @@
         }
     },
     "network": {
-        "format": "{icon} {name}",
-        "format-wifi": "󱛎",
-        "format-disconnected": "󰤮",
+        "interface": "wlp2s0",
+        "format": "{icon} {essid}",
+        "format-wifi": "󱛎 {essid}",
         "format-icons": {
             "0": "󰤯",
             "1": "󰤟",
@@ -120,14 +143,14 @@
             "3": "󰤥",
             "4": "󰤨"
         },
-        "on-click": "eww open wifi-menu",
-        "tooltip": false
+        "max-length": 50,
+        "tooltip": true,
+        "tooltip-format": "{ifname}:{ipaddr}"
     },
     "bluetooth": {
         "format": "",
         "format-connected": "󰂱",
         "format-disabled": "󰂲",
-        "on-click": "eww open bt-menu",
         "tooltip": false,
         "icon-size": 20
     }
