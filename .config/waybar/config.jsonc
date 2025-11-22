@@ -9,6 +9,7 @@
     "modules-left": [
         "clock",
         "custom/weather",
+        "hyprland/windowcount",
         "hyprland/window"
     ],
     "modules-center": [
@@ -22,8 +23,28 @@
         "backlight"
     ],
     "hyprland/window": {
-        "format": "   {}",
-        "interval": 1
+        "format": "{}",
+        "interval": 1,
+        "rewrite": {
+            "(.*) — LibreWolf": "   $1",
+            "(.*) - Code - OSS": "  $1",
+            "rmpc": "  $1",
+            "(.*) - Discord": "   $1",
+            "(.*)  — Gwenview": "   $1",
+            "(.*) - VLC media player": "󰕼  $1",
+            "(.*) - Blender": "  $1",
+            "nvim(.*)": "  $1",
+            "kitty(.*)": " $1",
+            "(.*) - Obsidian - Obsidian (.*)": "󱞁  $1",
+            "(.*) - Thunar": "   $1",
+            "ranger": "  $1",
+            "(.*)Steam": "  $1Steam",
+            "(.*)  — Kid3": "󱤇  $1",
+            "": "󰄛  "
+        }
+    },
+    "hyprland/windowcount": {
+        "format": "    {}"
     },
     "hyprland/workspaces": {
         "disable-scroll": true,

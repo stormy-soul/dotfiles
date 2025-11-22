@@ -53,6 +53,7 @@ tooltip * {
 
 #custom-weather,
 #window,
+#windowcount,
 #clock,
 #battery,
 #pulseaudio,
@@ -177,9 +178,15 @@ tooltip * {
     border-left: 0;
 }
 
-#window {
+#windowcount {
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
     border: 2px solid rgba(166, 173, 200, 0.3);
+}
+
+#window {
+    border-radius: 10px;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    margin-right: 10px;
 }
