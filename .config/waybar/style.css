@@ -64,6 +64,7 @@ tooltip * {
 #idle_inhibitor,
 #tray,
 #backlight,
+#custom-notification,
 #mpris,
 #workspaces {
     color: @foreground;
@@ -150,8 +151,9 @@ tooltip * {
     color: @color4;
     border: 2px solid rgba(166, 173, 200, 0.3);
     border-left: 0;
-    border-radius: 0 10px 10px 0;
-    margin-right: 30px;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0 0 0 10px;
 }
 
 #network {
@@ -170,17 +172,26 @@ tooltip * {
     margin-right: 10px;
 }
 
+#custom-notification {
+    color: @color4;
+    border-radius: 0 10px 10px 0;
+    border: 2px solid rgba(166, 173, 200, 0.3);
+    border-left: 0;
+    margin-right: 30px;
+    padding: 0 5px 0 10px;
+}
+
 #custom-weather {
     color: @color4;
     border-radius: 0 10px 10px 0;
     padding: 0 10px 0 0;
     border: 2px solid rgba(166, 173, 200, 0.3);
     border-left: 0;
+    margin-right: 10px;
 }
 
 #windowcount {
     border-radius: 10px;
-    margin-left: 10px;
     margin-right: 10px;
     border: 2px solid rgba(166, 173, 200, 0.3);
 }

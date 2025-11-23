@@ -15,6 +15,6 @@ fi
 
 pkill -9 waybar && waybar & # SIGUSR1 will cause waybar to core dump :/
 sleep 0.2
-swaync-client --reload-css
+swaync-client -rs
 python3 ~/.config/wallpapers/rmpc.py -t theme.ron
 notify-send -i preferences-system -t 2500 "Theme updated" "System theme was updated to \"$selection\""

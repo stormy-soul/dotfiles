@@ -9,19 +9,19 @@
     "modules-left": [
         "clock",
         "custom/weather",
-        "hyprland/windowcount",
         "hyprland/window"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "mpris",        
+        "mpris",
         "tray",
         "battery",
         "pulseaudio",
-        "backlight"
-    ],
+        "backlight",
+        "custom/notification"
+  ],
     "hyprland/window": {
         "format": "{}",
         "interval": 1,
@@ -111,7 +111,7 @@
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
         "format-icons": [
-            "󰃞 ",
+            "󰃞  ",
             "󰃟 ",
             "󰃠 "
         ],
@@ -155,8 +155,8 @@
         "format-icons": {
             "default": [
                 "",
-                "",
-                ""
+                " ",
+                "   "
             ]
         }
     },
@@ -183,5 +183,24 @@
         "format-disabled": "󰂲",
         "tooltip": true,
         "tooltip-format": "{controller_alias}:{device_address}\n{device_alias}: {device_battery_percentage}%"
+    },
+    "custom/notification": {
+      "tooltip": true,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫  ",
+        "none": "󰂜  ",
+        "dnd-notification": "󰂠  ",
+        "dnd-none": "󰪓  ",
+        "inhibited-notification": "󰂛  ",
+        "inhibited-none": "󰪑  ",
+        "dnd-inhibited-notification": "󰂛  ",
+        "dnd-inhibited-none": "󰪑  "
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "escape": true
     }
 }
