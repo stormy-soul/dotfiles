@@ -13,7 +13,7 @@ else
   wal -i "$img" --cols16 darken --contrast 3.0 --saturate 0.7 -n >/dev/null
 fi
 
-pkill -9 waybar && waybar & # SIGUSR1 will cause waybar to core dump :/
+pkill -9 waybar && waybar &
 sleep 0.2
 swaync-client -rs
 python3 ~/.config/wallpapers/rmpc.py -t theme.ron

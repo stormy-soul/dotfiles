@@ -1,0 +1,85 @@
+#!/bin/bash
+
+if [ "$1" = "network" ]; then
+  wifi_list=$(nmcli -t -f ACTIVE,SSID,SIGNAL,SECURITY dev wifi)
+
+  connected_ssid=""
+  connected_signal=""
+  connected_security=""
+
+  menu=""
+  while IFS=: read -r active ssid signal security; do
+    [ -z "$ssid" ] && continue
+
+    if [ "$active" = "yes" ]; then
+      connected_ssid="$ssid"
+      connected_signal="$signal"
+      connected_security="$security"
+    fi
+  done <<< "$wifi_list"
+
+  get_icon() {
+    local s=$1
+    if [ "$s" -ge 80 ]; then
+      echo "󰤨"
+    elif [ "$s" -ge 60 ]; then
+      echo "󰤥"
+    elif [ "$s" -ge 40 ]; then
+      echo "󰤢"
+    elif [ "$s" -ge 20 ]; then
+      echo "󰤟"
+    else
+      echo "󰤯"
+    fi
+  }
+
+  if [ -n "$connected_ssid" ]; then
+    icon=$(get_icon "$connected_signal")
+    menu+="Connected:\n"
+    menu+="\t$icon $connected_ssid [$connected_security]\n"
+  fi
+
+  menu+="Available:\n"
+
+  while IFS=: read -r active ssid signal security; do
+    [ -z "$ssid" ] && continue
+    [ "$ssid" = "$connected_ssid" ] && continue  
+
+    icon=$(get_icon "$signal")
+    menu+="\t$icon $ssid [$security]\n"
+  done <<< "$wifi_list"
+
+  selected=$(printf "%b" "$menu" | rofi -dmenu -p "WiFi" -no-show-icons)
+  [ -z "$selected" ] && exit
+
+  if [[ "$selected" == "↻ Refresh" ]]; then
+    exec "$0" network
+  fi
+
+  [[ "$selected" =~ Connected ]] && exit
+  [[ "$selected" =~ Available ]] && exit
+
+  ssid=$(echo "$selected" | sed -E 's/^[^ ]+ //' | sed -E 's/ \[.*\]$//')
+
+  nmcli device wifi connect "$ssid" || notify-send -i preferences-system -t 2500 "WiFi" "Failed to connect"
+fi
+
+if [ "$1" = "bluetooth" ]; then
+  choice=$(bluetoothctl devices | rofi show -dmenu -p "Bluetooth")
+  [ -z "$choice" ] && exit
+
+  mac=$(echo "$choice" | awk '{print $2}')
+  bluetoothctl connect "$mac" || bluetoothctl disconnect "$mac" || notify-send -i preferences-system -t 2500 "Bluetooth" "Failed to connect"
+fi
+
+if [ "$1" = "power" ]; then
+  option=$(printf " Suspend\n Reboot\n Shutdown\n Logout\n Lock" | rofi show -dmenu -p "Power")
+
+  case "$option" in
+  "Shutdown") systemctl poweroff ;;
+  "Reboot") systemctl reboot ;;
+  "Suspend") systemctl suspend ;;
+  "Logout") hyprctl dispatch exit ;;
+  "Lock") swaylock ;;
+  esac
+fi

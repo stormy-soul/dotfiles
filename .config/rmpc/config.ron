@@ -194,7 +194,7 @@
         sample_bits: 16,
       ),
       smoothing: (
-        noise_reduction: 80,
+        noise_reduction: 85,
         monstercat: false,
         waves: false,
       ),
